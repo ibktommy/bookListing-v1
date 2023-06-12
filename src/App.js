@@ -1,7 +1,16 @@
+import BookListingItem from './components/BookListItem';
+import bookData from './data.js'
+
 const App = () => {
 	return (
 		<div className="container">
-			<h1>BookListing-v1</h1>
+			<div className="main-box">
+				{
+					bookData.map((bookItem, id) => (
+						<BookListingItem key={id} bookItemProps={bookItem}/>
+					))
+				}
+			</div>
 		</div>
 	);
 };
