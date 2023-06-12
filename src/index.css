@@ -107,7 +107,6 @@ body {
   font-weight: 700;
   font-size: 1.5rem;
   cursor: pointer;
-  /* align-self: flex-start; */
 }
 
 .delete-one.hidden {
@@ -116,4 +115,28 @@ body {
 
 .book-article:hover .delete-one.hidden{
   opacity: 1;
+}
+
+/* MEDIA CSS */
+@media screen and (max-width: 800px) {
+  .main-box {
+    width: 95vw;
+  }
+
+  .book-image {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .book-title {
+    font-size: 1.5rem;
+  }
+
+  .book-author {
+    font-size: 1.3rem;
+  }
+
+  .delete-one {
+    font-size: 1.2rem;
+  }
 }
