@@ -7,18 +7,31 @@ const App = () => {
 
 	let bookDataTotal = bookList.length;
 
+	// Function that deletes all book in the bookList
 	function clearBookList () {
 		setBookList([])
+	}
+
+	// Function that checks for the book selected and deletes it from the bookList
+	function deleteOneItem (index) {
+		setBookList(bookList.filter((bookItem) => bookItem.id !== index))
 	}
 
 	return (
 		<div className="container">
 			<div className="main-box">
 				<h4 className="header">{bookDataTotal} total books</h4>
-				{bookList.map((bookItem, id) => (
-					<BookListingItem key={id} bookItemProps={bookItem} />
+				{bookList.map((filteredBookItem, id) => (
+					<BookListingItem
+						key={id}
+						bookItemProps={filteredBookItem}
+						id={id}
+						deleteItemProps={deleteOneItem}
+					/>
 				))}
-				<button className="book-submit" onClick={clearBookList}>Clear All</button>
+				<button className="book-submit" onClick={clearBookList}>
+					Clear All
+				</button>
 			</div>
 		</div>
 	);

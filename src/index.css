@@ -39,6 +39,11 @@ body {
 }
 
 .book-article {
+  display: flex;
+  align-items: center;
+}
+
+.book-article-flex {
   width: 100%;
   display: flex;
   align-items: center;
@@ -88,4 +93,19 @@ body {
 .book-submit:hover {
   background-color: rgb(233, 34, 34);
   transition: .4s ease;
+}
+
+.delete-one {
+  font-weight: 700;
+  font-size: 1.5rem;
+  cursor: pointer;
+  /* align-self: flex-start; */
+}
+
+.delete-one.hidden {
+  opacity: .4;
+}
+
+.book-article:hover .delete-one.hidden{
+  opacity: 1;
 }
