@@ -17,6 +17,10 @@ const App = () => {
 		setBookList(bookList.filter((bookItem) => bookItem.id !== index))
 	}
 
+	function resetList() {
+		setBookList(bookData);
+	}
+
 	return (
 		<div className="container">
 			<div className="main-box">
@@ -29,9 +33,16 @@ const App = () => {
 						deleteItemProps={deleteOneItem}
 					/>
 				))}
-				<button className="book-submit" onClick={clearBookList}>
-					Clear All
-				</button>
+
+				{bookList.length === 0 ? (
+					<button className="reset-btn" onClick={resetList}>
+						reset
+					</button>
+				) : (
+					<button className="book-submit" onClick={clearBookList}>
+						Clear All
+					</button>
+				)}
 			</div>
 		</div>
 	);

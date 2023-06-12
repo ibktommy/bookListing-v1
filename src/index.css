@@ -79,15 +79,23 @@ body {
   font-size: 1.6rem;
 }
 
-.book-submit {
+.book-submit, .reset-btn {
   width: 100%;
   color: #fff;
-  background-color: blueviolet;
   padding: 1.5rem 0;
   font-size: 1.8rem;
+  text-transform: capitalize;
   letter-spacing: .2rem;
   border: 0;
   cursor: pointer;
+}
+
+.book-submit {
+  background-color: blueviolet;
+}
+
+.reset-btn {
+  background-color: olivedrab;
 }
 
 .book-submit:hover {
