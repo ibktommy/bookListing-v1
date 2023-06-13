@@ -33,7 +33,6 @@ const App = () => {
 	}
 
 	function getImage(e) {
-		console.log(e);
 		setImage(e.target.files[0]);
 	}
 
@@ -59,8 +58,6 @@ const App = () => {
 			image: URL.createObjectURL(image),
 		};
 
-		console.log(newBookItem);
-
 		setBookList([newBookItem, ...bookList]);
 
 		setAuthor("");
@@ -75,7 +72,7 @@ const App = () => {
 					type="text"
 					name="book-title"
 					id="book-title"
-					placeholder="Book Title"
+					placeholder="Enter Book Title"
 					value={title}
 					onChange={getTitle}
 				/>
@@ -83,7 +80,7 @@ const App = () => {
 					type="text"
 					name="book-name"
 					id="book-name"
-					placeholder="Book Name"
+					placeholder="Enter Book Name"
 					value={author}
 					onChange={getAuthor}
 				/>
