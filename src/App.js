@@ -25,22 +25,26 @@ const App = () => {
 	}
 
 	function getTitle(e) {
-		let titleValue = e.target.value.trim();
-		setTitle(titleValue);
+		setTitle(e.target.value);
 	}
 
 	function getAuthor(e) {
-		let authorValue = e.target.value.trim();
-		setAuthor(authorValue);
+		setAuthor(e.target.value);
 	}
 
 	function handleFormSubmit(e) {
 		e.preventDefault();
 
-		if (title === "" || author === "") {
-			alert("Please fill the input fields");
+		if (title === null || author === null) {
+			alert("Make sure to fill the input field");
 			return;
 		}
+		if (title.trim().length === 0 || author.trim().length === 0) {
+			alert("Empty spaces are not valid, please use valid words");
+			return;
+		}
+
+		console.log(title.value);
 
 		let newBookItem = {
 			title: title,
@@ -49,10 +53,10 @@ const App = () => {
 
 		console.log(newBookItem);
 
-		setBookList([newBookItem, ...bookList])
+		setBookList([newBookItem, ...bookList]);
 
-		setAuthor("")
-		setTitle("")
+		setAuthor("");
+		setTitle("");
 	}
 
 	return (
