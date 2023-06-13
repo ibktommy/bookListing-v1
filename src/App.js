@@ -6,7 +6,7 @@ const App = () => {
 	const [bookList, setBookList] = useState(bookData);
 	const [title, setTitle] = useState("");
 	const [author, setAuthor] = useState("");
-	const [image, setImage] = useState("");
+	const [image, setImage] = useState([]);
 
 	let bookDataTotal = bookList.length;
 
@@ -32,6 +32,11 @@ const App = () => {
 		setAuthor(e.target.value);
 	}
 
+	function getImage(e) {
+		console.log(e);
+		setImage(e.target.files[0]);
+	}
+
 	function handleFormSubmit(e) {
 		e.preventDefault();
 
@@ -43,12 +48,15 @@ const App = () => {
 			alert("Empty spaces are not valid, please use valid words");
 			return;
 		}
-
-		console.log(title.value);
+		if (image.length === 0) {
+			alert("You need to upload the book image")
+		}
 
 		let newBookItem = {
+			id: bookList.length + 1,
 			title: title,
 			author: author,
+			image: URL.createObjectURL(image),
 		};
 
 		console.log(newBookItem);
@@ -57,6 +65,7 @@ const App = () => {
 
 		setAuthor("");
 		setTitle("");
+		setImage([]);
 	}
 
 	return (
@@ -78,7 +87,14 @@ const App = () => {
 					value={author}
 					onChange={getAuthor}
 				/>
-				<input type="file" name="book-pic" id="book-pic" />
+				<input
+					type="file"
+					multiple
+					accept="image/*"
+					name="book-pic"
+					id="book-pic"
+					onChange={getImage}
+				/>
 				<button className="form-button">Add Book</button>
 			</form>
 
